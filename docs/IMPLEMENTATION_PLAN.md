@@ -7,6 +7,15 @@
 - 方針：データ層（`databases`/`fields`/`records`）とアプリ層（`apps`/`app_views`）を分離。汎用 JSON ＋昇格戦略。全テーブル `workspace_id` 付き。
 - 関連：`DESIGN.md` §3 ADR、§6 データモデル、§9 楽観ロック、§10 DB 間参照。
 
+## 進捗
+- **フェーズ0（基盤）完了**：monorepo・web/api/shared 疎通・CI・ローカル DB。
+- **フェーズ1（DB 層）完了**：Drizzle 導入、中核10テーブル＋`workspace_members`（ADR-0002）、
+  初期マイグレーション（`apps/api/drizzle/0000_*.sql`）、シードスクリプト。
+  ※ live migrate はサンドボックスに Postgres を導入できないため未実行。ユーザー環境で
+  `pnpm db:up && pnpm --filter @recordbase/api db:migrate && ... db:seed` を実行して検証する。
+- 関連 ADR：`docs/decisions/0001-monorepo-tooling.md`, `0002-workspace-assignment.md`。
+- 次：フェーズ2（認証・Better Auth）。
+
 ## 全体の進め方
 1. 縦に薄く通す（土台 → 1 つの DB で CRUD が動く）ことを最優先し、横（フィールド型・アプリビュー・権限）を後から肉付けする。
 2. 大きな設計判断が出たら `docs/decisions/` に ADR を追加してから実装（CLAUDE.md の指示）。

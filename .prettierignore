@@ -3,5 +3,8 @@ build
 node_modules
 pnpm-lock.yaml
 
+# Drizzle の生成物（マイグレーション SQL・スナップショット）
+apps/api/drizzle
+
 # 手書きの日本語ドキュメント（表組みの再整形を避ける）
 *.md
