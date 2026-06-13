@@ -1,0 +1,7 @@
+dist
+build
+node_modules
+pnpm-lock.yaml
+
+# 手書きの日本語ドキュメント（表組みの再整形を避ける）
+*.md

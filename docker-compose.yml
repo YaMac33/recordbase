@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: recordbase
+      POSTGRES_PASSWORD: recordbase
+      POSTGRES_DB: recordbase
+    ports:
+      - '5432:5432'
+    volumes:
+      - recordbase_pgdata:/var/lib/postgresql/data
+
+volumes:
+  recordbase_pgdata:

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.turbo/
+
+# env
+.env
+.env.*.local
+
+# logs / os
+*.log
+.DS_Store
